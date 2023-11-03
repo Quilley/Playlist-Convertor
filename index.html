@@ -1,1 +1,34 @@
+// Set up the authorization URL
+const authEndpoint = 'https://accounts.spotify.com/authorize';
+const clientId = 'YOUR_CLIENT_ID';
+const redirectUri = 'http://localhost:8888/callback';
+const scopes = [
+  'user-read-private',
+  'user-read-email',
+  'user-library-read',
+];
 
+// Redirect the user to the authorization URL
+window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token`;
+
+// Get the access token from the URL hash
+const accessToken = window.location.hash
+  .substring(1)
+  .split('&')
+  .reduce((initial, item) => {
+    if (item) {
+      const parts = item.split('=');
+      initial[parts[0]] = decodeURIComponent(parts[1]);
+    }
+    return initial;
+  }, {})
+  .access_token;
+
+// Use the access token to get the user's liked songs
+fetch('https://api.spotify.com/v1/me/tracks', {
+  headers: {
+    Authorization: `Bearer ${accessToken}`,
+  },
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
