@@ -1,53 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Spotify and YouTube Music Integration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Spotify and YouTube Music Integration</h1>
-
-    <!-- Spotify Credentials Form -->
-    <form id="spotifyLoginForm">
-        <label for="spotifyClientId">Spotify Client ID:</label>
-        <input type="text" id="spotifyClientId" name="spotifyClientId" required><br>
-        <label for="spotifyClientSecret">Spotify Client Secret:</label>
-        <input type="text" id="spotifyClientSecret" name="spotifyClientSecret" required><br>
-    </form>
-
-    <!-- YouTube Music Credentials Form -->
-    <!-- PHASE 2
-    <form id="youtubeMusicLoginForm">
-        <label for="googleEmail">Google Email:</label>
-        <input type="text" id="googleEmail" name="googleEmail" required><br>
-        <label for="googlePassword">Google Password:</label>
-        <input type="password" id="googlePassword" name="googlePassword" required><br>
-    </form>
--->
-    <!-- Button to authorize and perform the integration -->
-    <button type="button" onclick="authorizeIntegration()">Authorize and Integrate</button>
-
-    <!-- JavaScript to Handle Authorization and Integration -->
-    <script>
-        function authorizeIntegration() {
-            // You should implement a server-side process to securely handle Spotify and YouTube Music authorization.
-            // This is a simplified example for demonstration purposes.
-
-            // Get Spotify and Google credentials from the forms
-            const spotifyClientId = document.getElementById('spotifyClientId').value;
-            const spotifyClientSecret = document.getElementById('spotifyClientSecret').value;
-            const googleEmail = document.getElementById('googleEmail').value;
-            const googlePassword = document.getElementById('googlePassword').value;
-
-            // Replace with actual authorization and integration logic.
-            // Proper security measures and server-side handling are essential.
-
-            if (spotifyClientId && spotifyClientSecret && googleEmail && googlePassword) {
-                // Authenticate with Spotify and fetch liked songs.
-                // Authenticate with Google (YouTube Music) and perform actions.
-
-                // Note that integrating with YouTube Music through web scraping is not recommended and may violate terms of service. Instead, use the official YouTube Data API.
-            }
-        }
-    </script>
+    <div class="container">
+        <h1>Spotify Login</h1>
+        <a href="{{ login_url }}"><button>Login with Spotify</button></a>
+    </div>
 </body>
 </html>
