@@ -1,6 +1,6 @@
 // Replace with your Spotify API credentials
 const clientID = 'e49780644eba43679b85ffb0e5d09ee4';
-const redirectURI = '03e38a698f37464ea0a3ff6c51aa2876';
+const redirectURI = 'https://quilley.github.io/Playlist-Convertor/#';
 
 const loginWithSpotify = () => {
     const scope = 'user-library-read';
